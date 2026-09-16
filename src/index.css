@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    /* Studio Light Neutral (Gentle Warm Paper, No Glare) */
+    --canvas-bg: #f8f9fb;
+    --card-bg: #ffffff;
+    --card-subtle: #f1f4f9;
+    --card-hover: #f3f6fa;
+    --input-bg: #ffffff;
+    --border-subtle: #e2e8f0;
+    --border-card: #cbd5e1;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+  }
+
+  .dark {
+    /* Obsidian / Matte Graphite (Soothing, Eye-Friendly, Zero Dark Blue, Zero Neon) */
+    --canvas-bg: #0d0f14;
+    --card-bg: #141720;
+    --card-subtle: #1a1e2a;
+    --card-hover: #202433;
+    --input-bg: #10121a;
+    --border-subtle: #202534;
+    --border-card: #2a3144;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+  }
+
+  body {
+    background-color: var(--canvas-bg);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}

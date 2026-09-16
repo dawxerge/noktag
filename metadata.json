@@ -1,0 +1,6 @@
+{
+  "name": "noktag.com - Escrow & P2P Drop Marketplace",
+  "description": "noktag.com kripto escrow, canlı ve hazır zula (live/dead drop) pazaryeri, finansçı IBAN-to-Crypto entegrasyonu, teminat güvence sistemi ve Telegram bot altyapısı.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
