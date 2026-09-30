@@ -286,39 +286,42 @@ export const NearbyRadarWidget: React.FC<NearbyRadarWidgetProps> = ({
 
       {/* TACTICAL VISUAL RADAR SONAR COMPASS & NEARBY HIGHLIGHT CARDS */}
       {showRadarCompass && (
-        <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <div className="glass-card border border-zinc-200/90 dark:border-white/10 rounded-2xl p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center shadow-sm">
           {/* Circular Sonar Radar Canvas */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center relative">
-            <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-full border border-zinc-300 bg-white shadow-xs flex items-center justify-center overflow-hidden">
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-full border-2 border-emerald-500/40 bg-[#080c14] shadow-2xl shadow-emerald-950/60 flex items-center justify-center overflow-hidden">
+              {/* Subtle cyber background grid */}
+              <div className="absolute inset-0 cyber-grid-overlay opacity-20 pointer-events-none" />
+
               {/* Concentric distance rings */}
-              <div className="absolute inset-4 rounded-full border border-zinc-200"></div>
-              <div className="absolute inset-12 rounded-full border border-zinc-200 border-dashed"></div>
-              <div className="absolute inset-20 rounded-full border border-zinc-200"></div>
-              <div className="absolute inset-28 rounded-full border border-zinc-200"></div>
+              <div className="absolute inset-4 rounded-full border border-emerald-500/20"></div>
+              <div className="absolute inset-12 rounded-full border border-emerald-500/25 border-dashed"></div>
+              <div className="absolute inset-20 rounded-full border border-emerald-500/20"></div>
+              <div className="absolute inset-28 rounded-full border border-emerald-500/30"></div>
 
               {/* Crosshairs */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-full h-[1px] bg-zinc-200"></div>
+                <div className="w-full h-[1px] bg-emerald-500/25"></div>
               </div>
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="h-full w-[1px] bg-zinc-200"></div>
+                <div className="h-full w-[1px] bg-emerald-500/25"></div>
               </div>
 
               {/* Rotating sweeping sonar beam */}
               <div 
                 className="absolute inset-0 rounded-full pointer-events-none animate-spin origin-center"
                 style={{
-                  background: 'conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(24, 24, 27, 0.06) 360deg)',
-                  animationDuration: '6s',
+                  background: 'conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(16, 185, 129, 0.28) 360deg)',
+                  animationDuration: '4s',
                 }}
               ></div>
 
               {/* Center User Beacon */}
-              <div className="relative z-10 w-3.5 h-3.5 rounded-full bg-zinc-900 border-2 border-white shadow-xs flex items-center justify-center">
-                <span className="w-1 h-1 rounded-full bg-white"></span>
+              <div className="relative z-10 w-4 h-4 rounded-full bg-cyan-400 border-2 border-white shadow-[0_0_12px_rgba(6,182,212,0.9)] flex items-center justify-center">
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
               </div>
-              <span className="absolute bottom-3 text-[9px] font-medium text-zinc-600 bg-white/90 border border-zinc-200 px-2 py-0.5 rounded-full shadow-2xs">
-                SİZ (0.0 km)
+              <span className="absolute bottom-3 text-[10px] font-mono font-bold text-emerald-400 bg-black/80 border border-emerald-500/40 px-2.5 py-0.5 rounded-full shadow-lg backdrop-blur-md">
+                🛰️ SİZ (0.0 km)
               </span>
 
               {/* Blips for Nearby Products mapped relative to user */}
@@ -346,13 +349,13 @@ export const NearbyRadarWidget: React.FC<NearbyRadarWidgetProps> = ({
                       style={{
                         transform: `translate(${x}px, ${y}px)`,
                       }}
-                      className="absolute z-20 group transition-transform hover:scale-125 focus:outline-none"
+                      className="absolute z-20 group transition-all hover:scale-130 focus:outline-none"
                     >
                       <div
-                        className={`w-4 h-4 rounded-full border-2 border-white flex items-center justify-center text-[8px] font-bold shadow-xs ${
+                        className={`w-4 h-4 rounded-full border border-white flex items-center justify-center text-[8px] font-bold shadow-md transition-all ${
                           isDead
-                            ? 'bg-emerald-600 text-white'
-                            : 'bg-amber-600 text-white'
+                            ? 'bg-emerald-500 text-zinc-950 shadow-[0_0_8px_rgba(16,185,129,0.8)]'
+                            : 'bg-amber-500 text-zinc-950 shadow-[0_0_8px_rgba(245,158,11,0.8)]'
                         }`}
                       >
                         {isDead ? 'D' : 'L'}
@@ -366,13 +369,13 @@ export const NearbyRadarWidget: React.FC<NearbyRadarWidgetProps> = ({
             {/* Hovered blip info readout */}
             <div className="mt-3 text-center min-h-[30px]">
               {hoveredBlip ? (
-                <div className="text-xs text-zinc-800 font-medium bg-white px-3 py-1 rounded-full border border-zinc-200 shadow-2xs inline-flex items-center gap-1.5">
-                  <span className="text-zinc-500">{hoveredBlip.product.dropType === 'dead_drop' ? 'Dead Drop:' : 'Live Drop:'}</span>
-                  <span className="text-zinc-900 truncate max-w-[200px]">{hoveredBlip.product.title}</span>
-                  <span className="text-emerald-700 font-semibold">({formatDistance(hoveredBlip.distance)})</span>
+                <div className="text-xs text-zinc-900 dark:text-zinc-100 font-medium bg-white/95 dark:bg-zinc-900/95 px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-700 shadow-md inline-flex items-center gap-1.5 backdrop-blur-md">
+                  <span className="text-zinc-400 font-mono text-[10px]">{hoveredBlip.product.dropType === 'dead_drop' ? 'DEAD DROP:' : 'LIVE DROP:'}</span>
+                  <span className="text-zinc-900 dark:text-zinc-100 font-bold truncate max-w-[200px]">{hoveredBlip.product.title}</span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-mono font-bold">({formatDistance(hoveredBlip.distance)})</span>
                 </div>
               ) : (
-                <div className="text-[11px] text-zinc-500">
+                <div className="text-[11px] text-zinc-400 dark:text-zinc-500 font-mono">
                   Radar noktalarının üzerine gelin veya tıklayarak zula detayını açın
                 </div>
               )}
@@ -381,13 +384,13 @@ export const NearbyRadarWidget: React.FC<NearbyRadarWidgetProps> = ({
 
           {/* Right Side: Closest 3 Drops Quick Cards */}
           <div className="lg:col-span-7 space-y-3">
-            <div className="flex items-center justify-between border-b border-zinc-200 pb-2">
-              <span className="text-xs font-semibold text-zinc-900 flex items-center gap-1.5">
-                <Crosshair className="w-3.5 h-3.5 text-zinc-600" />
+            <div className="flex items-center justify-between border-b border-zinc-200/80 dark:border-zinc-800 pb-2">
+              <span className="text-xs font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5 tracking-wide">
+                <Crosshair className="w-3.5 h-3.5 text-emerald-500" />
                 KONUMUNUZA EN YAKIN ZULA NOKTALARI
               </span>
-              <span className="text-xs text-zinc-600 font-medium">
-                {nearbyDrops.length} Zula Aktif
+              <span className="text-xs text-emerald-600 dark:text-emerald-400 font-mono font-semibold">
+                ● {nearbyDrops.length} Zula Sinyali Aktif
               </span>
             </div>
 
@@ -398,44 +401,45 @@ export const NearbyRadarWidget: React.FC<NearbyRadarWidgetProps> = ({
                   <div
                     key={product.id}
                     onClick={() => onSelectProduct(product)}
-                    className="bg-white hover:bg-zinc-50 border border-zinc-200 p-3 rounded-xl transition-all cursor-pointer flex items-center justify-between gap-3 group shadow-2xs"
+                    className="bg-white/80 dark:bg-zinc-900/70 hover:bg-white dark:hover:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-emerald-500/50 p-3 rounded-2xl transition-all cursor-pointer flex items-center justify-between gap-3 group shadow-2xs hover:shadow-md"
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      <div className="relative w-12 h-12 rounded-lg overflow-hidden shrink-0 border border-zinc-200">
+                      <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-zinc-200 dark:border-zinc-700">
                         <img
                           src={product.imageUrl}
                           alt={product.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                          referrerPolicy="no-referrer"
                         />
                         <div className="absolute top-0.5 left-0.5">
                           {isDead ? (
-                            <span className="px-1 rounded bg-emerald-100 text-emerald-800 text-[8px] font-bold">DEAD</span>
+                            <span className="px-1 rounded bg-emerald-500 text-zinc-950 text-[8px] font-extrabold">DEAD</span>
                           ) : (
-                            <span className="px-1 rounded bg-amber-100 text-amber-800 text-[8px] font-bold">LIVE</span>
+                            <span className="px-1 rounded bg-amber-500 text-zinc-950 text-[8px] font-extrabold">LIVE</span>
                           )}
                         </div>
                       </div>
 
                       <div className="min-w-0 space-y-0.5">
-                        <h4 className="text-xs font-semibold text-zinc-900 truncate group-hover:text-black transition-colors">
+                        <h4 className="text-xs font-bold text-zinc-900 dark:text-zinc-100 truncate group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                           {product.title}
                         </h4>
-                        <div className="flex items-center gap-2 text-[11px] text-zinc-500">
+                        <div className="flex items-center gap-2 text-[11px] text-zinc-500 dark:text-zinc-400">
                           <span>📍 {product.district}</span>
                           <span>•</span>
-                          <span className="text-zinc-800 font-semibold">{product.priceUSDT} USDT</span>
+                          <span className="text-zinc-900 dark:text-zinc-200 font-bold">{product.priceUSDT} USDT</span>
                         </div>
                       </div>
                     </div>
 
                     <div className="text-right shrink-0 flex items-center gap-2">
                       <div className="space-y-0.5">
-                        <span className="px-2.5 py-1 rounded-md bg-zinc-100 text-zinc-800 border border-zinc-200 font-medium text-xs">
+                        <span className="px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-500/40 font-mono font-semibold text-xs shadow-2xs">
                           {distance !== null ? formatDistance(distance) : 'Bilinmiyor'}
                         </span>
-                        <div className="text-[10px] text-zinc-400">Mesafe</div>
+                        <div className="text-[10px] text-zinc-400 font-mono">Mesafe</div>
                       </div>
-                      <ChevronRight className="w-4 h-4 text-zinc-400 group-hover:text-zinc-700 transition-colors" />
+                      <ChevronRight className="w-4 h-4 text-zinc-400 group-hover:text-emerald-500 group-hover:translate-x-0.5 transition-all" />
                     </div>
                   </div>
                 );

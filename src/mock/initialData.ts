@@ -166,7 +166,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     sellerCollateral: 1500.0,
     prepTimeMinutes: 0, // Hazır
     stock: 2,
-    imageUrl: 'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?w=600&auto=format&fit=crop&q=80',
+    imageUrl: '/src/assets/images/hardware_crypto_vault_1790756006474.jpg',
     createdAt: '2026-09-14T10:30:00Z',
     deadDropCoordinates: {
       city: 'İstanbul',
@@ -175,7 +175,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       lng: 29.0435,
       addressHint: 'Bebek Parkı girişi, sol taraftaki tarihi taş surun 3. kemerinin alt taş oyuğu.',
       stealthInstructions: 'Siyah manyetik su geçirmez kutu taşın altına mıknatısla tutturulmuştur. Gece veya gündüz dikkat çekmeden alınabilir.',
-      photoUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80',
+      photoUrl: '/src/assets/images/dead_drop_capsule_1790755982915.jpg',
     },
   },
   {
@@ -196,7 +196,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     sellerCollateral: 1500.0,
     prepTimeMinutes: 75,
     stock: 5,
-    imageUrl: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?w=600&auto=format&fit=crop&q=80',
+    imageUrl: '/src/assets/images/live_drop_covert_1790755995390.jpg',
     createdAt: '2026-09-15T09:15:00Z',
   },
   {
@@ -217,7 +217,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     sellerCollateral: 800.0,
     prepTimeMinutes: 0,
     stock: 1,
-    imageUrl: 'https://images.unsplash.com/photo-1544717305-2782549b5136?w=600&auto=format&fit=crop&q=80',
+    imageUrl: '/src/assets/images/dead_drop_capsule_1790755982915.jpg',
     createdAt: '2026-09-14T18:00:00Z',
     deadDropCoordinates: {
       city: 'İstanbul',
@@ -226,7 +226,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       lng: 28.9958,
       addressHint: 'Maçka Parkı üst terası, 4. ahşap bankın arkasındaki çam ağacının dip kök kovuğu.',
       stealthInstructions: 'Koyu yeşil mat bant ile kamufle edilmiştir. Kolayca çekip alabilirsiniz.',
-      photoUrl: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&auto=format&fit=crop&q=80',
+      photoUrl: '/src/assets/images/dead_drop_capsule_1790755982915.jpg',
     },
   },
   {
@@ -247,7 +247,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     sellerCollateral: 800.0,
     prepTimeMinutes: 90,
     stock: 3,
-    imageUrl: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=600&auto=format&fit=crop&q=80',
+    imageUrl: '/src/assets/images/live_drop_covert_1790755995390.jpg',
     createdAt: '2026-09-15T14:20:00Z',
   },
   {
@@ -268,7 +268,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     sellerCollateral: 1500.0,
     prepTimeMinutes: 0,
     stock: 2,
-    imageUrl: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?w=600&auto=format&fit=crop&q=80',
+    imageUrl: '/src/assets/images/dead_drop_capsule_1790755982915.jpg',
     createdAt: '2026-09-13T12:00:00Z',
     deadDropCoordinates: {
       city: 'İzmir',
@@ -277,7 +277,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       lng: 27.1398,
       addressHint: 'Alsancak İskele karşısı çim alan aydınlatma direği taban kapağı arkası.',
       stealthInstructions: 'Gri mıknatıslı kutu. 1 saniyede yerinden ayrılır.',
-      photoUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80',
+      photoUrl: '/src/assets/images/dead_drop_capsule_1790755982915.jpg',
     },
   },
   {
@@ -298,7 +298,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     sellerCollateral: 800.0,
     prepTimeMinutes: 0,
     stock: 2,
-    imageUrl: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&auto=format&fit=crop&q=80',
+    imageUrl: '/src/assets/images/hardware_crypto_vault_1790756006474.jpg',
     createdAt: '2026-09-15T18:00:00Z',
     deadDropCoordinates: {
       city: 'İstanbul',

@@ -96,20 +96,20 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Brand Logo */}
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveView('marketplace')}>
-            <div className="w-9 h-9 rounded-xl bg-zinc-900 dark:bg-zinc-100 flex items-center justify-center shadow-xs">
-              <Shield className="w-4 h-4 text-white dark:text-zinc-900" />
+          <div className="flex items-center gap-3 cursor-pointer group" onClick={() => setActiveView('marketplace')}>
+            <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-400 via-teal-600 to-zinc-900 flex items-center justify-center shadow-lg shadow-emerald-500/25 group-hover:scale-105 transition-all">
+              <Shield className="w-5 h-5 text-white" />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <span className="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-                  noktag<span className="text-emerald-600 dark:text-emerald-400">.com</span>
+                <span className="text-lg font-black tracking-tight text-zinc-900 dark:text-zinc-100">
+                  noktag<span className="text-emerald-500">.com</span>
                 </span>
-                <span className="text-[10px] uppercase font-medium px-1.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
+                <span className="text-[10px] uppercase font-mono font-bold px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
                   ESCROW
                 </span>
               </div>
-              <p className="text-[10px] text-zinc-400 dark:text-zinc-500 font-medium">
+              <p className="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono tracking-wider">
                 P2P GÜVENLİ ZULA AĞI
               </p>
             </div>
